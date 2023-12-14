@@ -1,0 +1,24 @@
+Name: MachineA
+Id: g=a65232f681eb3de9589ecbcf9b88805f
+Type: FolderType
+Children:
+- Name: Variable1
+  Id: g=1c8b29db69bce36109de8766da57b4a4
+  Type: BaseDataVariableType
+  DataType: Int32
+  Value: 0
+- Name: Variable2
+  Id: g=9d0be860c71189e6aab0f6e5636bdde0
+  Type: BaseDataVariableType
+  DataType: Int32
+  Value: 0
+- Name: Variable3
+  Id: g=850be967dd23870d8ac83f196bf87526
+  Type: BaseDataVariableType
+  DataType: Int32
+  Value: 0
+- Name: Variable4
+  Id: g=9e461aaa21a1065bff8825e7a0d15f22
+  Type: BaseDataVariableType
+  DataType: Int32
+  Value: 0

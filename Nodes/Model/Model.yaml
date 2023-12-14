@@ -1,0 +1,7 @@
+Name: Model
+Type: ModelCategoryFolder
+Children:
+- File: MachineA/MachineA.yaml
+- File: MachineB/MachineB.yaml
+- File: MachineC/MachineC.yaml
+- File: MachineD/MachineD.yaml
