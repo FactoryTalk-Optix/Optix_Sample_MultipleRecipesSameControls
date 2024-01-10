@@ -6,10 +6,6 @@ This project demonstrates how to handle multiple recipes schema using the same U
 
 This example contains a modified version of the `RecipeEditor` from the `TemplateLibrary` which has been adjusted to handle this specific scenario, make sure you don't have any `RecipeEditor` in your project already
 
-## FT Optix version
-
-This project was developed with FT Optix 1.3.X
-
 ## Instructions to replicate this project in your application
 
 Project is ready to run as a demo but if you want to implement it in your project these are the steps you need to perform
