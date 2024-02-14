@@ -12,6 +12,7 @@ using FTOptix.Core;
 using FTOptix.CoreBase;
 using FTOptix.SQLiteStore;
 using FTOptix.Store;
+using System.Linq;
 #endregion
 
 public class RecipesEditorComboBoxLogic : BaseNetLogic
@@ -35,21 +36,24 @@ public class RecipesEditorComboBoxLogic : BaseNetLogic
 			return;
 
 		var recipeSchemaEditor = Owner.Owner;
-		var recipeSchemaVariable = recipeSchemaEditor.GetVariable("RecipeSchema");
-		if (recipeSchemaVariable == null)
-			return;
+		foreach (var recipeSchema in recipeSchemaEditor.Children.Where(t => t.BrowseName.StartsWith("RecipeSchema")))
+		{
+            var recipeSchemaVariable = recipeSchemaEditor.GetVariable(recipeSchema.BrowseName);
+            if (recipeSchemaVariable == null)
+                return;
 
-		var recipeSchemaNodeId = (NodeId)recipeSchemaVariable.Value.Value;
+            var recipeSchemaNodeId = (NodeId)recipeSchemaVariable.Value.Value;
 
-		var recipeSchemaObject = (RecipeSchema)InformationModel.Get(recipeSchemaNodeId);
-		if (recipeSchemaObject == null)
-			return;
+            var recipeSchemaObject = (RecipeSchema)InformationModel.Get(recipeSchemaNodeId);
+            if (recipeSchemaObject == null)
+                return;
 
-		var editModelNode = recipeSchemaObject.GetObject("EditModel");
-		if (editModelNode == null)
-			return;
+            var editModelNode = recipeSchemaObject.GetObject("EditModel");
+            if (editModelNode == null)
+                return;
 
-		recipeSchemaObject.CopyFromStoreRecipe(comboBox.Text, editModelNode.NodeId, CopyErrorPolicy.BestEffortCopy);
+            recipeSchemaObject.CopyFromStoreRecipe(comboBox.Text, editModelNode.NodeId, CopyErrorPolicy.BestEffortCopy);
+        }
 	}
 
 	public override void Stop()
